@@ -1,13 +1,15 @@
-# Gong MCP Server
+# Gong MCP Gateway
 
-A Model Context Protocol (MCP) server that provides access to Gong's API for retrieving call recordings and transcripts. This server allows Claude to interact with Gong data through a standardized interface.
+A Model Context Protocol (MCP) gateway for the Gong API, similar to [supergateway](https://github.com/supercorp-ai/supergateway). This gateway converts the stdio-based Gong MCP server into HTTP endpoints for easy deployment on platforms like Railway.
 
 ## Features
 
-- List Gong calls with optional date range filtering
-- Retrieve detailed transcripts for specific calls
-- Secure authentication using Gong's API credentials
-- Standardized MCP interface for easy integration with Claude
+- 🔄 **Protocol Conversion**: Converts stdio MCP server to HTTP REST API
+- 🚀 **Railway Deployment Ready**: Optimized for platform deployment
+- 📊 **Session Management**: Multi-client session handling
+- 🏥 **Health Checks**: Built-in monitoring endpoints
+- 🔧 **Configurable**: Command-line options and environment variables
+- 📋 **Convenience APIs**: Direct endpoints for common Gong operations
 
 ## Prerequisites
 

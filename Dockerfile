@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
@@ -14,5 +14,12 @@ COPY . .
 # Build TypeScript code
 RUN npm run build 2>&1
 
-# Start the server
-CMD ["sh", "-c", "node dist/index.js 2>&1"] 
+# Expose port
+EXPOSE 8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:8000/health || exit 1
+
+# Start the gateway server
+CMD ["node", "dist/gateway.js"] 
